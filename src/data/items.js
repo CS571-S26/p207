@@ -200,7 +200,7 @@ const items = [
     id: '016',
     title: 'Severance',
     author: 'Dan Erickson',
-    type: 'movie',
+    type: 'tv',
     genre: ['science fiction', 'thriller'],
     rating: 4,
     review: 'This was such a fun and mind-bending concept, plenty of parellels to whatever you want it to parallel to. I think the satire got overly weighty in the second season, but such is the way of television. Time to wait another decade for the next 8 episodes.',

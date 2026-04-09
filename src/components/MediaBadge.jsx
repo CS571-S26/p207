@@ -4,7 +4,7 @@ const TYPE_META = {
   book: { label: 'Book', bg: 'primary' },
   article: { label: 'Article', bg: 'info' },
   movie: { label: 'Movie', bg: 'danger' },
-  game: { label: 'Game', bg: 'success' },
+  tv: { label: 'TV Show', bg: 'success' },
 }
 
 function MediaBadge({ type }) {
