@@ -1,5 +1,15 @@
+import HeroSection from '../components/HeroSection.jsx'
+import CurrentlyConsuming from '../components/CurrentlyConsuming.jsx'
+import FeaturedPicks from '../components/FeaturedPicks.jsx'
+
 function Home() {
-  return <h1>Home</h1>
+  return (
+    <>
+      <HeroSection />
+      <CurrentlyConsuming />
+      <FeaturedPicks />
+    </>
+  )
 }
 
 export default Home

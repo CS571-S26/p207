@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { Button } from 'react-bootstrap'
 import items from '../data/items.js'
 import ShelfRow from '../components/ShelfRow.jsx'
 import SearchBar from '../components/SearchBar.jsx'
@@ -39,6 +40,16 @@ function Shelf() {
   const [minRating, setMinRating] = useState(0)
   const [sort, setSort] = useState('date-desc')
 
+  const filtersActive =
+    query !== '' || type !== 'all' || minRating > 0 || sort !== 'date-desc'
+
+  const clearFilters = () => {
+    setQuery('')
+    setType('all')
+    setMinRating(0)
+    setSort('date-desc')
+  }
+
   const visibleItems = useMemo(() => {
     return items
       .filter((item) => {
@@ -52,7 +63,17 @@ function Shelf() {
 
   return (
     <>
-      <h1 className="mb-4">The Shelf</h1>
+      <section
+        className="rounded-4 p-4 p-md-5 mb-4 text-white text-center"
+        style={{ background: '#1a1b2e' }}
+      >
+        <h1
+          className="display-4 fw-bold mb-0"
+          style={{ fontFamily: 'Georgia, serif' }}
+        >
+          The Shelf
+        </h1>
+      </section>
 
       <div className="mb-4">
         <div className="mb-3">
@@ -66,6 +87,15 @@ function Shelf() {
             onMinRatingChange={setMinRating}
           />
           <SortDropdown value={sort} onChange={setSort} />
+          {filtersActive && (
+            <Button
+              variant="outline-secondary"
+              onClick={clearFilters}
+              aria-label="Clear all filters"
+            >
+              Clear filters
+            </Button>
+          )}
         </div>
       </div>
 

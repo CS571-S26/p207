@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
+import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
 import Shelf from './pages/Shelf.jsx'
 import ItemDetailPage from './pages/ItemDetailPage.jsx'
@@ -17,6 +18,7 @@ function App() {
           <Route path="/bookmarks" element={<Bookmarks />} />
         </Routes>
       </main>
+      <Footer />
     </>
   )
 }
