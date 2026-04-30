@@ -23,41 +23,39 @@ function Stars({ rating }) {
 function ShelfItem({ item }) {
   return (
     <Card className="h-100 shelf-item">
-      <div style={{ position: 'relative' }}>
-        {item.coverImage ? (
-          <Card.Img variant="top" src={item.coverImage} alt={`Cover of ${item.title}`} />
-        ) : (
-          <div
-            className="shelf-item__spine d-flex align-items-end p-3"
-            aria-hidden="true"
-            style={{ minHeight: '180px', background: 'linear-gradient(135deg, #2b2d42, #1a1b2e)', color: '#fff' }}
-          >
-            <div className="fw-bold" style={{ fontFamily: 'Georgia, serif', fontSize: '1.1rem' }}>
-              {item.title}
-            </div>
+      {item.coverImage ? (
+        <Card.Img variant="top" src={item.coverImage} alt={`Cover of ${item.title}`} />
+      ) : (
+        <div
+          className="shelf-item__spine d-flex align-items-end p-3"
+          aria-hidden="true"
+          style={{ minHeight: '180px', background: 'linear-gradient(135deg, #2b2d42, #1a1b2e)', color: '#fff' }}
+        >
+          <div className="fw-bold" style={{ fontFamily: 'Georgia, serif', fontSize: '1.1rem' }}>
+            {item.title}
           </div>
-        )}
-        <div style={{ position: 'absolute', top: '0.5rem', right: '0.5rem' }}>
-          <BookmarkButton id={item.id} />
         </div>
-      </div>
+      )}
       <Card.Body>
-        <div className="d-flex justify-content-between align-items-start mb-2 gap-2">
-          <Card.Title className="mb-0" style={{ fontSize: '1rem' }}>
-            <Link
-              to={`/shelf/${item.id}`}
-              className="stretched-link text-reset text-decoration-none"
-            >
-              {item.title}
-            </Link>
-          </Card.Title>
+        <div className="mb-2">
           <MediaBadge type={item.type} />
         </div>
+        <Card.Title className="mb-1" style={{ fontSize: '1rem' }}>
+          <Link
+            to={`/shelf/${item.id}`}
+            className="stretched-link text-reset text-decoration-none"
+          >
+            {item.title}
+          </Link>
+        </Card.Title>
         <Card.Subtitle className="text-muted mb-2" style={{ fontSize: '0.85rem' }}>
           {item.author}
         </Card.Subtitle>
         <Stars rating={item.rating} />
       </Card.Body>
+      <div style={{ position: 'absolute', top: '0.5rem', right: '0.5rem', zIndex: 3 }}>
+        <BookmarkButton id={item.id} />
+      </div>
     </Card>
   )
 }
